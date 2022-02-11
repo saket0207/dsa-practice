@@ -22,15 +22,13 @@ public class GetMazePathWithJumps {
 
     private static ArrayList<String> getMazePathWithJumps(int sr, int sc, int dr, int dc) {
         if(sr == dr && sc == dc){
-            ArrayList<String> bRes = new ArrayList<>();
-            bRes.add("");
-            return bRes;
+            ArrayList<String> bres = new ArrayList<>();
+            bres.add("");
+            return bres;
         }
-
         ArrayList<String> paths = new ArrayList<>();
-
         for(int hm = 1; hm <= dc - sc; hm++){
-            ArrayList<String> hPaths = getMazePathWithJumps(sr, sc + hm, sr, dc);
+            ArrayList<String> hPaths = getMazePathWithJumps(sr, sc + hm, dr, dc);
             for(String hPath : hPaths){
                 paths.add("h" + hm + hPath);
             }
@@ -41,7 +39,7 @@ public class GetMazePathWithJumps {
                 paths.add("v" + vm + vPath);
             }
         }
-        for(int dm = 1; dm < (dc - sc) && dm < (dr - sr); dm++){
+        for(int dm = 1; dm <= (dr - sr) && dm <= (dc - sc); dm++){
             ArrayList<String> dPaths = getMazePathWithJumps(sr + dm, sc + dm, dr, dc);
             for(String dPath : dPaths){
                 paths.add("d" + dm + dPath);

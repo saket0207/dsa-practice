@@ -4,23 +4,20 @@ import java.util.Scanner;
 
 public class LinearPower {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter number ");
-        int n = sc.nextInt();
-        System.out.println("Enter index ");
-        int index = sc.nextInt();
-        int power = calculateLinearPower(n, index);
-        System.out.println(power);
-    }
-
-    private static int calculateLinearPower(int n, int index) {
-        if(index == 0){
-            return 1;
+        public static void main(String [] args){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter number ");
+            int number = sc.nextInt();
+            System.out.println("Enter index ");
+            int index = sc.nextInt();
+            int power = calculatePower(number, index);
+            System.out.println(power);
         }
-        int linPowM1 = calculateLinearPower(n,index-1);
-        int pow = n * linPowM1;
-        return pow;
-
-    }
+        public static int calculatePower(int number, int index){
+            if(index == 0){
+                return 1;
+            }
+            int power = number * calculatePower(number, index - 1);
+            return power;
+        }
 }

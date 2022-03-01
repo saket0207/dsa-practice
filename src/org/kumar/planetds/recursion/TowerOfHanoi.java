@@ -17,25 +17,13 @@ public class TowerOfHanoi {
         toh(n, t1, t2, t3);
     }
 
-    private static void toh(int n, int t1, int t2, int t3) {
-        if(0 == n){
-            return;
+    private static void toh(int nod, int t1, int t2, int t3) {
+
+            if(nod == 0){
+                return;
+            }
+            toh(nod - 1, t1, t3, t2);
+            System.out.println(nod + "[" + t1 + "-" +t2 + "]");
+            toh(nod - 1, t3, t2, t1);
         }
-        toh(n-1, t1, t3, t2);
-        /*
-        *   1[1 -> 2]
-        *   2[1 -> 3]
-        *   1[2 -> 3]
-        * */
-        System.out.println(n + "[" + t1 + " -> " + t2 + "]");
-        /*
-        * 3[1 -> 2]
-        * */
-        toh(n-1, t3, t2, t1);
-        /*
-        *   1[3 -> 1]
-        *   2[3 -> 2]
-        *   1[1 -> 2]
-        * */
-    }
 }

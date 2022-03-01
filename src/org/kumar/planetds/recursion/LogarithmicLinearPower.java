@@ -4,26 +4,29 @@ import java.util.Scanner;
 
 public class LogarithmicLinearPower {
 
-    public static void main(String[] args) {
-
+    public static void main(String [] args){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number ");
-        int n = sc.nextInt();
+        int number = sc.nextInt();
         System.out.println("Enter index ");
         int index = sc.nextInt();
-        int logLinPow = logLinPower(n, index);
-        System.out.println(logLinPow);
-    }
+        int power = calculatePowerLogWay(number, index);
+        System.out.println(power);
 
-    private static int logLinPower(int n, int index) {
+    }
+    public static int calculatePowerLogWay(int number, int index){
         if(index == 0){
             return 1;
         }
-        int pow = logLinPower(n, index/2);
-        int logLinPow = pow * pow;
+
+        int powerHalfWay = calculatePowerLogWay(number, index / 2);
+        int power = powerHalfWay * powerHalfWay;
         if(index % 2 == 1){
-            logLinPow = logLinPow * n;
+            power = power * number;
         }
-        return logLinPow;
+
+        return power;
+
+
     }
 }

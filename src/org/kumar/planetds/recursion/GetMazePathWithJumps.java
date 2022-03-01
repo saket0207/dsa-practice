@@ -19,7 +19,7 @@ public class GetMazePathWithJumps {
         ArrayList<String> paths = getMazePathWithJumps(1, 1, dr, dc);
         System.out.println(paths);
     }
-//adding comments
+
     private static ArrayList<String> getMazePathWithJumps(int sr, int sc, int dr, int dc) {
         if(sr == dr && sc == dc){
             ArrayList<String> bres = new ArrayList<>();
